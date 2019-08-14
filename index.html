@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $('a.nav-link').on('click', function(e) {
+        $('a.nav-link').removeClass('active');
+      });    
+    });
+      
+    
+    $(document).on('scroll', function(event) {
+        const anchorElements = $("a[name]").get();
+        for (let element of anchorElements) {
+          var y = element.getClientRects()[0].top;
+          if (y <= 0) {
+            const text = element.getAttribute('name');
+            $('a.nav-link').removeClass('active');
+            $(`a.nav-link[href='#${text}']`).addClass('active');
+          };
+        }
+    });
+
+    </script>
+
+
+  </head>
+
+  <body class="text-center">
+    <canvas id="renderCanvas" width="100%" height="100%"></canvas>
+    <div class="container">
+    
+    <header class="masthead mb-auto">
+    <div class="inner">
+        <nav class="nav nav-masthead justify-content-center fixed-top">
+        <a class="nav-link active" href="#Home">Home</a>
+        <a class="nav-link" href="#Projects">Projects</a>
+        <a class="nav-link" href="#Education">Education</a>
+        </nav>
+    </div>
+    </header>
+
+      <a name="Home"></a>
+      <section>
+          <div class="row h-100">
+              <div class="col-sm-12 my-auto">
+                  <div class="mx-auto">
+                      <img src="imgs/profile.jpg" class="rounded-circle" alt="That's me" style="width: 20%; height: auto">
+                      <h1>Damiano Massarelli</h1>
+                      <p class="lead">A developer passionate about game dev and graphics.</p>
+                  </div>
+              </div>
+          </div>
+          
+      </section>
+
+      <a name="Projects"></a>
+      <section>
+        <h1 class="section-title">Projects</h1>
+        <h3 class="project-title"><span>Harentz</span></h3>
+        <div class="row">
+            <div class="col-lg vertical-center">
+              <img src="imgs/harentz-cover.png" class="img-thumbnail rounded" alt="harentz">
+            </div>
+            <div class="col-lg">
+              <p>Harentz is an endless arcade game where the player has to dodge 3D tetrominos to survive. Harentz is developed in C++
+                using SDL2 and SDL gpu and a custom 3D engine based on BSP Trees. The source code is available on  <a href="https://github.com/damiano-massarelli/harentz" class="externalLink">github</a>
+                 and you can <a href="https://play.google.com/store/apps/details?id=com.alephzerogames.harentz">give it a try on android</a>.
+              </p>
+            </div>
+        </div>
+
+        <h3 class="project-title"><span>ReGeBe</span></h3>
+        <div class="row">
+            <div class="col-lg vertical-center">
+              <img src="imgs/regebe.png" class="img-thumbnail rounded" alt="regebe">
+            </div>
+            <div class="col-lg">
+              <p>ReGeBe is by far the biggest project I've worked on. In ReGeBe the player controls Wooty, an
+                unconventional hero in his quest to retrieve the colors stolen from the world. Despite being
+                a relatively standard platformer, ReGeBe adds some puzzle game components: crates change their
+                behavior when colors are shot to them making it possible to solve simple puzzles.<br>
+                As the player retrieves the stolen colors, they also come back in the world which originally is in black and white.<br>
+                ReGeBe is developed by a team of friends using Lua and Corona SDK. Give it a try.
+              </p>
+            </div>
+        </div>
+
+        <h3 class="project-title"><span>sre</span></h3>
+        <div class="row">
+            <div class="col-lg vertical-center">
+              <img src="imgs/sre_logo.png" class="img-thumbnail rounded" alt="sre">
+            </div>
+            <div class="col-lg" >
+                <p>sre is a simple game engine I'm developing to put the computer graphics concepts I learn into practice.
+                sre is built on top of OpenGL and SDL2 and it is available on <a href="https://github.com/damiano-massarelli/sre">GitHub</a>.
+                It's goal is to be simple to use and extend. At the moment it supports:
+                <div class="row">
+                  <div class="col-lg" >
+                    <ul class="features">
+                        <li> GameObjects and Components </li>
+                        <li> Scene Graph </li>
+                        <li> Event Listener </li>
+                        <li> Skeletal Animation </li>
+                        <li> Shadow Mapping </li>
+                        <li> FXAA, Bloom, Motion Blur, Gamma Correction, Tone Mapping, SSAO </li>
+                    </ul>
+                  </div>
+                  <div class="col-lg">
+                    <ul class="features">
+                        <li> Bump Mapping and Parallax Mapping </li>
+                        <li> Water Rendering </li>
+                        <li> Deferred Rendering </li>
+                        <li> PBR Materials </li>
+                        <li> Simple Particle System </li>
+                    </ul>
+                  </div>
+                </div>
+              </p>
+            </div>
+        </div>
+      </section>
+
+      <a name="Education"></a>
+      <section>
+        <h1 class="section-title">Education</h1>
+        <div style="text-align: left">
+            <h4><em>2016 - 2018</em> Master's Degree in Computer Science</h4>
+            <p> Roma Tre University </p>
+            <ul>
+              <li> <span class="title"> Thesis: <em>Morphing Between Topologically Different Meshes</em></span><br><br>
+                  The goal of the thesis was to develop a plug-in for Autodesk Maya to enable
+                  artists to copy an animation from a mesh <pre>A</pre> to a mesh <pre>B</pre>.
+                  To do so, the deformation of <pre>A</pre> is apllied to <pre>B</pre> in the form of
+                  distortion (<em>pre-strain</em>). If <pre>B</pre> cannot be deformed as imposed by the distortion,
+                  an elastic force will be applied to its vertices in order to reach a plausible configuration. </li>
+                  The correspondence among the vertices of <pre>A</pre> and <pre>B</pre> is therefore needed. To retrieve this
+                  correspondence, a modified version of the Product Manifold Filter is used. Moreover, in order to apply an elastic
+                  force to its vertices, <pre>B</pre> must be tetrahedralized so that it can behave as a solid body (and not as a hollow mesh).
+                  Tetrahedralization is carried out using one of two algorithms: a custom algorithm based on extrusion and the famous
+                  Delaunay tetrahedralization algorithm.<br/>
+                  This is still an experimental work but some of its results can be seen 
+                  <a data-toggle="collapse" href="#collapseImages" role="button" aria-expanded="false" aria-controls="collapseImages">here</a>.
+                  <div class="collapse" id="collapseImages">
+                      <div class="row">
+                          <div class="col-sm">
+                            <img src="imgs/cat_dog.gif" class="img-thumbnail rounded" alt="harentz">
+                          </div>
+                          <div class="col-sm">
+                              <img src="imgs/hands.gif" class="img-thumbnail rounded" alt="harentz">
+                          </div>
+                          <div class="col-sm">
+                              <img src="imgs/man_woman.gif" class="img-thumbnail rounded" alt="harentz">
+                          </div>
+                      </div>
+                  </div>
+                  <br><br>
+              <li>Final grade: <em>110 / 110 cum laude</em></li>
+            </ul> 
+
+          <br />
+          <h4><em>2013 - 2016</em> Bachelor’s Degree in Computer Science</h4>
+          <p> Roma Tre University </p>
+          <ul>
+            <li><span class="title">Thesis: <em>Development of a hypertextual-logging tool for multithreaded applications</em></span><br><br>
+                Logging is extremely useful to understand and monitor the execution of an application. Unfortunately, log reports are usually hard to analyze.
+                The goal of this thesis was to create a logging framework able to produce html pages that could be easily browsed. Every log call produces
+                an entry in a page and pages can be created an closed to more properly organize the logged information. 
+                What happens when more than one thread produces logging information? Unluckily, there is no simple answer as the order of execution of different
+                threads is unpredictable. As a result, the pages of a thread might be polluted by the data logged by other threads. The solution is to create
+                a different stack of pages for every thread: when a task is submitted to a thread it will create a set of pages that can only be accessed within
+                its thread. Its first page is also connected to the page of the thread that submitted the task. The creation of this link is extremely problematic.
+                The destination page may have not been created yet. 
+                The solution is the use of <em>Connections Points</em>: a mechanism whereby lazy links are created and then implemented using redirection between html pages.<br><br>
+
+            </li>
+            <li>Final grade: <em>110 / 110 cum laude</em></li>
+          </ul> 
+          
+          
+        </div>
+        
+      </section>
+
+      <hr>
+      <footer>
+        Template inspired by <a href="https://getbootstrap.com/docs/4.0/examples/cover/">Cover</a><br/>
+        &copy; Damiano Massarelli
+      </footer>
+
+    </div>
+
+  </body>
+
+  <script src="js/fractal.js"></script>
+</html>
