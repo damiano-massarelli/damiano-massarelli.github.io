@@ -67,6 +67,14 @@ span.title {
     border-bottom-color: rgba(100, 100, 100, .25);
 }
 
+.vertical-center-whole {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+  }
+
 .vertical-center {
     align-self: center;
 }
