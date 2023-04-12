@@ -22,7 +22,7 @@
         const anchorElements = $("a[name]").get();
         for (let element of anchorElements) {
           var y = element.getClientRects()[0].top;
-          if (y <= 0) {
+          if (y <= 1) {
             const text = element.getAttribute('name');
             $('a.nav-link').removeClass('active');
             $(`a.nav-link[href='#${text}']`).addClass('active');
